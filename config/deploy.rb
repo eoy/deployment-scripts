@@ -9,7 +9,7 @@ load "config/recipes/rbenv"
 load "config/recipes/check"
 
 # TODO: Add IP
-server "72.14.183.209", :web, :app, :db, primary: true
+server "176.58.100.160", :web, :app, :db, primary: true
 
 set :user, "deployer"
 
