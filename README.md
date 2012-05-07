@@ -1,8 +1,9 @@
 ## Eoy's Deployment Scripts
 
-Requires Ruby 1.9.2 or higher.
+* Requires Ruby 1.9.2 or higher.
+* Requires ´ ```gem 'pg' # PostgreSQL```´ in Gemfile
 
-# - Steps -
+# Steps
 
 ```
 1. ssh root@176.58.100.160
