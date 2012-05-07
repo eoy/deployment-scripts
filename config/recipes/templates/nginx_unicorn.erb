@@ -1,0 +1,42 @@
+upstream <%= application %> {
+  server unix:/tmp/unicorn.<%= application %>.sock fail_timeout=0;
+}
+
+server {
+  # listen 80 default deferred;
+
+  server_name <%= application %>.pinkdog.fi;
+  root <%= current_path %>/public;
+
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  # Favicon 
+  location ~* \.ico$ {
+    expires 1w;
+    access_log off;
+    add_header Cache-Control "public";
+  }
+
+  # Media: images, video, audio, HTC, WebFonts 
+  location ~* \.(?:jpg|jpeg|gif|png|ico|gz|svg|svgz|ttf|otf|woff|eot|mp4|ogg|ogv|webm)$ {
+      expires 1M;
+    access_log off;
+    add_header Cache-Control "public";
+  }
+
+  try_files $uri/index.html $uri @unicorn;
+  location @unicorn {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://<%= application %>;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+}
