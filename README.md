@@ -1,7 +1,7 @@
 ## Eoy's Deployment Scripts
 
 * Requires Ruby 1.9.2 or higher.
-* Requires ´ ```gem 'pg' # PostgreSQL```´ in Gemfile
+* Requires ´```gem 'pg' # PostgreSQL```´ in Gemfile
 
 # Steps
 
