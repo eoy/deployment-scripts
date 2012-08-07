@@ -5,7 +5,8 @@ upstream <%= application %> {
 server {
   # listen 80 default deferred;
 
-  server_name <%= application %>.pinkdog.fi;
+  #TODO change doamin
+  server_name <%= application %>.example.com;
   root <%= current_path %>/public;
 
   location ^~ /assets/ {
