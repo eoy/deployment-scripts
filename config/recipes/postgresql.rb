@@ -1,4 +1,6 @@
+set_default(:unicorn_workers, 2)
 set_default(:postgresql_host, "localhost")
+set_default(:postgresql_pid) { "/var/run/postgresql/9.1-main.pid" }
 set_default(:postgresql_user) { application }
 set_default(:postgresql_password) { Capistrano::CLI.password_prompt "PostgreSQL Password: " }
 set_default(:postgresql_database) { "#{application}_production" }

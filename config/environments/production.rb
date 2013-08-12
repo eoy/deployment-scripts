@@ -70,8 +70,8 @@ Example::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # TODO: Add api key
-  CopycopterClient.configure do |config|
-    config.api_key = '#'
-    config.host = 'doghouse.pinkdog.fi'
-  end  
+  # CopycopterClient.configure do |config|
+  #   config.api_key = '#'
+  #   config.host = 'doghouse.pinkdog.fi'
+  # end  
 end

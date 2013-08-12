@@ -18,8 +18,6 @@ CMD="cd <%= current_path %>; bundle exec unicorn -D -c <%= unicorn_config %> -E 
 AS_USER=<%= unicorn_user %>
 set -u
 
-OLD_PIN="$PID.oldbin"
-
 sig () {
   test -s "$PID" && kill -$1 `cat $PID`
 }
