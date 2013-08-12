@@ -15,7 +15,7 @@ Replace `127.0.0.1` with the ip of the server
 6. Edit unicorn_init.sh (app name)
 7. Edit unicorn_prodution.rb (2x app name)
 8. Edit config/recipes/templates/nginx_unicorn.erb (domain)
-9. Uncomment load 'deploy/assets' in your capfile
+9. Uncomment load 'deploy/assets' in your capfile if it exists, otherwise run 'capify .' in the root of your rails app
 10. cap deploy:install (installs latest nginx, unicorn, node.js, postgresql, rbenv, ruby 1.9.3-p125) 
 11. cap deploy:setup (symlinks application, creates database for application, creates startup scripts for unicorn)
 12. cap deploy:cold
