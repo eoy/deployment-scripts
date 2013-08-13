@@ -45,6 +45,15 @@ namespace :deploy do
     end
   end
 
+  namespace :puma do
+    %w[start stop upgrade].each do |command|
+      desc "#{command} unicorn server"
+      task command, roles: :app, except: {no_release: true} do
+        run "cd #{release_path} && pumactl"
+      end
+    end
+  end
+
   # Update crontab manually
   desc "Update the crontab file"
   task :manual_crontab, :roles => :app, :except => { :no_release => true } do

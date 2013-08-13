@@ -1,4 +1,4 @@
 # TODO: Change IP
-server "77.72.0.51", :web, :app, primary: true
+server "127.0.0.1", :web, :app, :db, primary: true
 set :rails_env, 'production'
 set :whenever_environment, 'production'
