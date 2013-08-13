@@ -9,7 +9,7 @@
 Replace `127.0.0.1` with the ip of the server
 
 1. `ssh root@127.0.0.1`
-2. `adduser deployer --ingroup admin`
+2. `adduser deployer --ingroup sudo`
 3. `exit`
 4. `cat ~/.ssh/id_rsa.pub | ssh deployer@127.0.0.1 -p 22 'cat >> ~/.ssh/authorized_keys'`
 5. Edit deploy.rb (IP & app name)
