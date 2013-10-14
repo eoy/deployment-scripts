@@ -7,6 +7,11 @@ def set_default(name, *args, &block)
   set(name, *args, &block) unless exists?(name)
 end
 
+def close_sessions  # method is needed when changing user from root to deployer. Sessions need to close
+  sessions.values.each { |session| session.close }
+  sessions.clear
+end
+
 def add_apt_repository(repo)
   run "#{sudo} add-apt-repository #{repo}", :pty => true do |ch, stream, data|
     if data =~ /Press.\[ENTER\].to.continue/
