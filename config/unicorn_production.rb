@@ -3,7 +3,7 @@
 appname = "example"
 root = "/home/deployer/apps/#{appname}/current"
 working_directory root
-pid "#{root}/tmp/pids/unicorn.pid"
+pid "/tmp/unicorn.#{appname}.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
