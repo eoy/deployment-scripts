@@ -13,8 +13,9 @@ set -e
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 # TODO: Add app name
-APP_ROOT=/home/deployer/apps/example/current
-PID=$APP_ROOT/tmp/pids/unicorn.pid
+appname=example
+APP_ROOT=/home/deployer/apps/$appname/current
+PID=$APP_ROOT/tmp/unicorn.$appname.pid
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 AS_USER=deployer
 set -u
