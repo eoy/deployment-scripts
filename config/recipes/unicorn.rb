@@ -16,11 +16,17 @@ namespace :unicorn do
   end
   after "deploy:setup", "unicorn:setup"
 
-  %w[start stop restart].each do |command|
+  %w[start stop].each do |command|
     desc "#{command} unicorn"
     task command, roles: :app do
       run "service unicorn_#{application} #{command}"
     end
     after "deploy:#{command}", "unicorn:#{command}"
   end
+
+  desc "Zero-downtime restart of Unicorn"
+  task :restart, :except => { :no_release => true } do
+    run "kill -s USR2 `cat /tmp/unicorn.#{application}.pid`"
+  end
 end
+
