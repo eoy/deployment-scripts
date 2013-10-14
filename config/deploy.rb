@@ -1,5 +1,8 @@
 require "bundler/capistrano"
 
+set :user, "deployer"
+set :root_user, "root"
+
 load "config/recipes/base"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
@@ -12,8 +15,6 @@ load "config/recipes/check"
 set :stages, %w(production staging)
 set :default_stage, 'production'
 require 'capistrano/ext/multistage'
-
-set :user, "deployer"
 
 # TODO: Add application name
 set :application, "example"
