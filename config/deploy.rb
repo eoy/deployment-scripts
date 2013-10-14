@@ -26,6 +26,7 @@ set :scm, "git"
 set :repository, "git@github.com:eoy/#{application}.git"
 set :branch, "master"
 
+set :bundle_without, [:development, :test, :staging] if rails_env == 'production'
 # set :whenever_command, "RAILS_ENV=#{rails_env} bundle exec whenever --update-crontab #{application}"
 # require 'whenever/capistrano'
 
